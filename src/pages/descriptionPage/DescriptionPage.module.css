@@ -1,0 +1,95 @@
+.baseContainer {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 94vh;
+}
+
+.container {
+    position: relative;
+    background: url("../../assets/images/versus.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 70%;
+    height: auto;
+}
+
+.title {
+    font-family: "UsuziGrudRegular", sans-serif;
+    font-size: 70px;
+    color: dimgray;
+    padding-top: 12px;
+    text-shadow: 2px 2px 0 #fff;
+}
+
+.leftLogo,
+.rightLogo {
+    position: absolute;
+    top: 26px;
+    width: 150px;
+    height: 150px;
+}
+
+.leftLogo {
+    left: 60px;
+    filter: drop-shadow(-30px -30px 38px #fff);
+}
+
+.rightLogo {
+    right: 60px;
+    filter: drop-shadow(30px -30px 38px #fff);
+}
+
+.vsImage {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    width: calc(100vw / 6);
+    height: calc(100vw / 4);
+}
+
+.figter {
+    /* width: 400px; */
+}
+
+.container ul {
+    position: absolute;
+    left: 26%;
+    bottom: 0;
+}
+
+/* -------------------------------------------------- */
+
+.listItemContainer,
+.listItemNotVisibleContainer {
+    width: calc(38vw / 7);
+    height: calc(38vw / 7);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.listItemContainer {
+    background-color: #000;
+    border-top: 2px solid dimgray;
+    border-right: 2px solid rgb(132, 132, 132);
+    border-bottom: 2px solid rgb(132, 132, 132);
+    border-left: 2px solid dimgray;
+}
+
+.listItemContainer span {
+    overflow: hidden;
+}
+
+.listItemNotVisibleContainer {
+    background-color: dimgray;
+}
+
+.listItemActive {
+    transform: scale(1.2);
+    /* border: 8px solid rgb(13, 226, 13); */
+}
+/* -------------------------------------------------- */

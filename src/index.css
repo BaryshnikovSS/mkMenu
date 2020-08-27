@@ -1,0 +1,71 @@
+@font-face {
+    font-family: "MortalKombatRegular";
+    src: url("./assets/fonts/mkMenuFonts/mortalkombat1.eot");
+    src: url("/Fonts/ExampleFont.eot?#iefix") format('embedded-opentype'),;
+    src: url("./assets/fonts/mkMenuFonts/MortalKombat1.woff") format("woof");
+    src: url("./assets/fonts/mkMenuFonts/mortalkombat1.woff2") format("woof2");
+    src: url("./assets/fonts/mkMenuFonts/MortalKombat1.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "UsuziGrudRegular";
+    src: url("./assets/fonts/usuziGrud/usuzigrad.eot");
+    src: url("/Fonts/ExampleFont.eot?#iefix") format('embedded-opentype'),;
+    src: url("./assets/fonts/usuziGrud/UsuziGradient.woff") format("woof");
+    src: url("./assets/fonts/usuziGrud/usuzigrad.woff2") format("woof2");
+    src: url("./assets/fonts/usuziGrud/UsuziGradient.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  padding: 0;
+  margin: 0;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+button {
+  border: 0;
+  cursor: pointer;
+}
+
+ol,
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
