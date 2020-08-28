@@ -1,15 +1,35 @@
 import React, { useState, useEffect } from "react";
 import Context from "../../context/context";
 import List from "../../components/list/List";
-// import Fighter from "../../components/fighter/Fighter";
+import Poster from "../../components/poster/Poster";
 import getDragonList from "../../helpers/dragonListCreator";
 import css from "./DescriptionPage.module.css";
 
-// list styles
+// styles
 const styles = {
-  container: css.listItemContainer,
-  NVContainer: css.listItemNotVisibleContainer,
-  active: css.listItemActive,
+  list: {
+    container: css.listItemContainer,
+    NVContainer: css.listItemNotVisibleContainer,
+    active: css.listItemActive,
+  },
+  poster: {
+    rightContainer: {
+      right: 0,
+      borderLeft: "2px solid #fff",
+      transform: "skew(-15deg) translate(15%)",
+      title: {
+        right: "14%"
+      }
+    },
+    leftContainer: {
+      borderRight: "2px solid #fff",
+      transform: "skew(-15deg) translate(-15%)",
+      title: {
+        right: "40%"
+      }
+    }
+
+  }
 };
 
 // component
@@ -46,7 +66,7 @@ const DescriptionPage = ({ location: { state } }) => {
   }
 
   return (
-    <Context.Provider value={{ chooseHero, activeIdx, styles }}>
+    <Context.Provider value={{ chooseHero, activeIdx, styles: styles.list }}>
       <section className={css.baseContainer}>
         <div className={css.container}>
           <h2 className={css.title}>
@@ -75,7 +95,8 @@ const DescriptionPage = ({ location: { state } }) => {
             height="100px"
           />
           <List arrOfElem={icoList} />
-          {/* <Fighter hero={hero} /> */}
+          <Poster hero={hero} styles={styles.poster.leftContainer} />
+          <Poster hero={hero} styles={styles.poster.rightContainer} />
         </div>
         {/* <div className="leftDoor"></div> */}
         {/* <div className="rightDoor"></div> */}

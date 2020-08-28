@@ -5,7 +5,6 @@ const ListItem = ({ elem }) => {
   const { name, id, imgURL, idx, } = elem;
   // context
   const { chooseHero, activeIdx, styles } = useContext(Context);
-  console.log('idx === activeIdx', idx === activeIdx)
 
   return (
     <li 
