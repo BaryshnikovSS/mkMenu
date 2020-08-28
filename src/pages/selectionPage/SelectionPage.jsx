@@ -6,21 +6,29 @@ import List from "../../components/list/List";
 import Fighter from "../../components/fighter/Fighter";
 import css from "./SelectionPage.module.css";
 
-const styles = {
-  container: css.listItemContainer,
-  NVContainer: css.listItemNotVisibleContainer,
-  active: css.listItemActiveHero
-}
-
 // component
 const SelectionPage = () => {
   let history = useHistory();
+
+  const [isEnterDone, setIsEnterDone] = useState(false);
 
   const [heroes, setHeroes] = useState([]);
 
   useEffect(() => {
     services.fetchAllHero().then((data) => setHeroes(data));
   }, []);
+
+  const [styleActive, setStyleActive] = useState([]);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const currentActiveStyle =
+        styleActive === css.listItemActiveHeroLightGreen
+          ? css.listItemActiveHeroDarkGreen
+          : css.listItemActiveHeroLightGreen;
+      !isEnterDone && setStyleActive(currentActiveStyle);
+    }, 100);
+    return () => clearInterval(interval);
+  }, [styleActive, isEnterDone]);
 
   const [activeIdx, setActiveIdx] = useState(0);
 
@@ -72,11 +80,14 @@ const SelectionPage = () => {
           break;
 
         case "Enter":
-          console.log("enter");
-          history.push({
-            pathname: "/description",
-            state: { hero: heroes[activeIdx] },
-          });
+          setIsEnterDone(true);
+          setStyleActive(css.listItemActiveHeroLightGreen);
+          setTimeout(() => {
+            history.push({
+              pathname: "/description",
+              state: { hero: heroes[activeIdx] },
+            });
+          }, 5000);
           break;
 
         default:
@@ -97,6 +108,12 @@ const SelectionPage = () => {
     emptyBoxIdx.every((el) => el !== nextIdx) && setActiveIdx(nextIdx);
   }
 
+  const styles = {
+    container: css.listItemContainer,
+    NVContainer: css.listItemNotVisibleContainer,
+    active: styleActive,
+  };
+
   return (
     <Context.Provider value={{ chooseHero, activeIdx, styles }}>
       <section className={css.baseContainer}>
@@ -104,9 +121,7 @@ const SelectionPage = () => {
           <h2 className={css.title}>Select your figther</h2>
           <div className={css.menuContainer}>
             {heroes.length > 0 && <List arrOfElem={heroes} />}
-            {heroes[activeIdx] && (
-              <Fighter hero={{ ...heroes[activeIdx] }} />
-            )}
+            {heroes[activeIdx] && <Fighter hero={{ ...heroes[activeIdx] }} />}
           </div>
         </div>
       </section>

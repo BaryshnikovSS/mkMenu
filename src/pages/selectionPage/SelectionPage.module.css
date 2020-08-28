@@ -29,6 +29,7 @@
 
 .listItemContainer,
 .listItemNotVisibleContainer {
+    position: relative;
     width: calc(68vw / 7);
     height: calc(68vw / 7);
     max-height: calc(80vh / 4);
@@ -61,8 +62,16 @@
     background-color: dimgray;
 }
 
+.listItemActiveHero,
 .listItemActiveHero {
     transform: scale(1.08);
+}
+
+.listItemActiveHeroLightGreen {
     border: 8px solid rgb(13, 226, 13);
+}
+
+.listItemActiveHeroDarkGreen {
+    border: 8px solid rgb(19, 119, 19);
 }
 /* -------------------------------------------------- */

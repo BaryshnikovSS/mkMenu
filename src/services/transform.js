@@ -1,3 +1,5 @@
+import shortId from 'shortid';
+
 const refs = {
     emptyHeroImgs: [
         'https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/md/no-portrait.jpg',
@@ -11,11 +13,11 @@ export default {
         const currentHeroes = this.selectItems(heroes);
 
         return currentHeroes.map((hero, idx) => (idx === 10 ? {
-            id: 888,
+            id: shortId.generate(),
             imgURL: require('../assets/images/mortalKombatLogo.png'),
             name: 'logo'
         } : {
-            id: hero.id,
+            id: `${shortId.generate()}_${hero.id}`,
             imgURL: refs.emptyImgIdx.some(el => el === idx) ? '' : hero.images.md,
             name: refs.emptyImgIdx.some(el => el === idx) ? 'empty' : hero.name
         }));

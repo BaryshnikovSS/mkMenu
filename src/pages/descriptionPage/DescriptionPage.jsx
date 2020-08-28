@@ -18,10 +18,6 @@ const DescriptionPage = ({ location: { state } }) => {
   const [icoList, setIcoList] = useState(getDragonList(6));
   console.log("hero", hero);
 
-  useEffect(() => {
-    setTimeout(() => {}, 10000);
-  }, []);
-
   const [activeIdx, setActiveIdx] = useState();
 
   useEffect(() => {
