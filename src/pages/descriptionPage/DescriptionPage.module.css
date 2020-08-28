@@ -34,7 +34,7 @@
 
 .title {
     font-family: "UsuziGrudRegular", sans-serif;
-    font-size: 4.375rem;
+    font-size: calc(100vw / 20);
     color: dimgray;
     /* text-shadow: 2px 2px 0 #fff; */
     text-shadow: -2px 0 #000, 0 2px #000, 2px 0 #000, 0 -2px #000;
@@ -43,22 +43,23 @@
 
 .leftLogo,
 .rightLogo {
-    top: 26px;
-    width: 150px;
-    height: 150px;
+    top: calc(100vw / 42);
+    width: calc(100vw / 9);
+    height: calc(100vw / 9);
 }
 
 .leftLogo {
-    left: 60px;
     filter: drop-shadow(-30px -30px 38px #fff);
+    left: calc(100vw / 26);
 }
 
 .rightLogo {
-    right: 60px;
     filter: drop-shadow(30px -30px 38px #fff);
+    right: calc(100vw / 26);
 }
 
 .vsImage {
+    filter: drop-shadow(0px 0px 30px #fff);
     transform: translate(-50%, -50%);
     top: 50%;
     left: 50%;

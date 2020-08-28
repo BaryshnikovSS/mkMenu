@@ -12,6 +12,7 @@
 }
 
 .container h3 {
+    font-size: calc(100vw / 72);
     color: #fff;
     text-shadow: -2px 0 #000, 0 2px #000, 2px 0 #000, 0 -2px #000;
     position: absolute;
