@@ -1,5 +1,4 @@
 # mkMenu
-***
 
 ## To run project locally:
 
