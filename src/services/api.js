@@ -4,11 +4,18 @@ const baseUrl = 'https://akabab.github.io/superhero-api/api/';
 
 // SERVER REQUESTS
 export default {
-    fetchAllHero: function() {
+    fetchAllHeroes: function () {
         const result = fetch(`${baseUrl}all.json`)
             .then(response => response.json())
             .then(data => transform.forHeroCard(data))
-            .catch(err => new Error(err));
+            .catch(_ => transform.forEmptyHeroCard())
         return result;
+    },
+
+    fetchRandomHero: function () {
+        return fetch(`${baseUrl}all.json`)
+        .then(response => response.json())
+        .then(data => transform.forHeroCard(data, 1)[0])
+        .catch(_ => transform.forEmptyHeroCard())
     }
 };

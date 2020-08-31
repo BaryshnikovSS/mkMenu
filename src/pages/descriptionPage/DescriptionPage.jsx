@@ -1,9 +1,14 @@
 import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
+import { CSSTransition } from "react-transition-group";
 import Context from "../../context/context";
 import List from "../../components/list/List";
 import Poster from "../../components/poster/Poster";
 import getDragonList from "../../helpers/dragonListCreator";
+import services from "../../services/api";
 import css from "./DescriptionPage.module.css";
+import "../../transitions/slideFromLeftTransition.css";
+import "../../transitions/slideFromRightTransition.css";
 
 // styles
 const styles = {
@@ -18,25 +23,46 @@ const styles = {
       borderLeft: "2px solid #fff",
       transform: "skew(-15deg) translate(15%)",
       title: {
-        right: "14%"
-      }
+        right: "14%",
+      },
     },
     leftContainer: {
       borderRight: "2px solid #fff",
       transform: "skew(-15deg) translate(-15%)",
       title: {
-        right: "40%"
-      }
-    }
-
-  }
+        left: "34%",
+      },
+    },
+  },
 };
 
 // component
 const DescriptionPage = ({ location: { state } }) => {
   const { hero } = state;
+
+  let history = useHistory();
+
+  useEffect(() => {
+    setTimeout(() => {
+      history.push({
+        pathname: "/"
+      });
+    }, 10000);
+  })
+
+  const [oppositeHero, setOppositeHero] = useState(null);
+
+  useEffect(() => {
+    services.fetchRandomHero().then(data => setOppositeHero(data));
+  }, [])
+
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    hero && oppositeHero && setIsLoading(true);
+  }, [hero, oppositeHero])
+
   const [icoList, setIcoList] = useState(getDragonList(6));
-  console.log("hero", hero);
 
   const [activeIdx, setActiveIdx] = useState();
 
@@ -95,11 +121,25 @@ const DescriptionPage = ({ location: { state } }) => {
             height="100px"
           />
           <List arrOfElem={icoList} />
-          <Poster hero={hero} styles={styles.poster.leftContainer} />
-          <Poster hero={hero} styles={styles.poster.rightContainer} />
+          <CSSTransition
+            in={isLoading}
+            timeout={1000}
+            classNames="slideFromLeft"
+            mountOnEnter
+            unmountOnExit
+          >
+            <Poster hero={hero} styles={styles.poster.leftContainer} />
+          </CSSTransition>
+          <CSSTransition
+            in={isLoading}
+            timeout={1000}
+            classNames="slideFromRight"
+            mountOnEnter
+            unmountOnExit
+          >
+            <Poster hero={oppositeHero} styles={styles.poster.rightContainer} />
+          </CSSTransition>
         </div>
-        {/* <div className="leftDoor"></div> */}
-        {/* <div className="rightDoor"></div> */}
       </section>
     </Context.Provider>
   );

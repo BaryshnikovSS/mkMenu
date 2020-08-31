@@ -15,7 +15,7 @@ const SelectionPage = () => {
   const [heroes, setHeroes] = useState([]);
 
   useEffect(() => {
-    services.fetchAllHero().then((data) => setHeroes(data));
+    services.fetchAllHeroes().then(data => setHeroes(data));
   }, []);
 
   const [styleActive, setStyleActive] = useState([]);
@@ -87,7 +87,7 @@ const SelectionPage = () => {
               pathname: "/description",
               state: { hero: heroes[activeIdx] },
             });
-          }, 5000);
+          }, 570);
           break;
 
         default:

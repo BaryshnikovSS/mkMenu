@@ -13,3 +13,11 @@
     box-shadow: 6px -6px 4px rgb(13, 226, 13);
     overflow: hidden;
 }
+
+.container h4 {
+    font-size: calc(100vw / 98);
+    text-shadow: 0 0 6px #fff;
+    position: absolute;
+    right: 16px;
+    bottom: 20px;
+}

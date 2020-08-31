@@ -1,0 +1,21 @@
+.slideFromRight-enter {
+    left: 100%;
+}
+
+.slideFromRight-enter-active {
+    left: 40%;
+    transition: all 1s ease-in;
+}
+
+.slideFromRight-enter-done {
+    left: 40%;
+}
+
+.slideFromRight-exit {
+    left: 40%;
+}
+
+.slideFromRight-exit-active {
+    left: 100%;
+    transition: all 1s ease-in-out;
+}

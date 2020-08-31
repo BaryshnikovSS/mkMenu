@@ -2,6 +2,7 @@ import React from "react";
 import css from './Poster.module.css'
 
 const Poster = ({ hero, styles }) => {
+  console.log('hero', hero)
   const { imgURL, name } = hero;
   return (
     <div className={css.container} style={styles}>

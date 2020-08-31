@@ -14,7 +14,7 @@ const Fighter = ({ hero }) => {
           />
         </div>
       )}
-      {name && name !== "logo" && <span>{name}</span>}
+      {name && name !== "logo" && <h4>{name}</h4>}
     </div>
   );
 };
